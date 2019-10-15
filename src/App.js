@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Link} from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
+
+axios
+  .get('https://www.potterapi.com/v1/sortingHat')
+    .then(function (response) {
+    console.log(response);
+    })
+    .catch(function (error) {
+    console.log(`There was an error. The error is: ${error}`);
+    });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Your a Wizard Harry.</h1>
     </div>
   );
 }
